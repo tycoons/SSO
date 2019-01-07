@@ -1,3 +1,4 @@
 creating a sso php to use raspberry-pi as a thin client connect to AD for authentication
 REQUIREMENTS
 have a raspberry pi preinstalled with lamp and freerdp for connection rdp to your TSE
+all you have to do is create an icon on the desktop for the launcher
