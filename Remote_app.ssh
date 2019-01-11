@@ -1,0 +1,20 @@
+#!/bin/sh
+numlockx on
+variable=$(zenity --forms --title "Formulaire profil Session" --text "Identification" \
+	--add-entry "Utilisateur" \
+	--add-password "Password" \
+	--separator "|");
+if [ "$?" -eq 1 ]
+	then
+		exit
+fi
+user=$(echo $variable | cut -d"|" -f1)
+password=$(echo $variable | cut -d"|" -f2)
+xfreerdp /v:uourserverhere \
+/kbd:0x0000040c \
+/load-balance-info:"tsv://MS Terminal Services Plugin.1.Programmes_Remot" \
+/cert-ignore \
+/u:$user \
+/p:$password \
+/network:lan -menu-anims \
+/f /multimon
